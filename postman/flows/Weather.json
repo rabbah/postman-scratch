@@ -1,0 +1,484 @@
+{
+  "name": "Weather",
+  "description": "",
+  "flow": {
+    "nodes": {
+      "xTOOxLVq": {
+        "type": "action/request@1",
+        "pos": {
+          "x": 432,
+          "y": -736
+        },
+        "config": {},
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "SAf4vVMU": {
+        "type": "value/reference@2",
+        "pos": {
+          "x": 754,
+          "y": -686
+        },
+        "config": {
+          "value": "arguments.city",
+          "type": "string"
+        },
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "PF61jXND": {
+        "type": "task/http-request@1",
+        "pos": {
+          "x": 1208,
+          "y": -736
+        },
+        "config": {
+          "element": {
+            "id": "B36de9aec6c6EEc67C2bCA39",
+            "collection": "CED5D38880DBaada0afAf9ed",
+            "inExtensibleCollection": true,
+            "name": "Weather",
+            "method": "GET"
+          },
+          "environment": null,
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "JhD4UEPO",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "d4CKhJLa",
+              "key": "CityName",
+              "latch": true,
+              "isExtraneous": false
+            },
+            {
+              "id": "iGDMIaCD",
+              "type": null,
+              "kind": null,
+              "value": null,
+              "key": "weather-key"
+            }
+          ],
+          "requestVariables__expanded": true,
+          "scriptsModifyEnvVars": false
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "L85Xw3Tr": {
+              "extends": "requestVariables",
+              "as": 4
+            }
+          },
+          "output": {}
+        }
+      },
+      "d4CKhJLa": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1002,
+          "y": -686
+        },
+        "config": {
+          "value": "city"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "IltgSV_M": {
+        "type": "action/response@1",
+        "pos": {
+          "x": 1608,
+          "y": -728
+        },
+        "config": {
+          "data": [
+            {
+              "id": "status",
+              "key": "Status Code",
+              "value": 200,
+              "kind": "number",
+              "type": "TYPE_NUMBER"
+            },
+            {
+              "id": "headers",
+              "key": "Headers",
+              "value": null,
+              "kind": null,
+              "type": null
+            },
+            {
+              "id": "body",
+              "key": "Body",
+              "value": "body",
+              "kind": "reference",
+              "type": "value/reference@2",
+              "__noIn": true
+            }
+          ],
+          "data__expanded": true
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "headers": {
+              "extends": "data"
+            },
+            "body": {
+              "extends": "data"
+            }
+          },
+          "output": {}
+        }
+      }
+    },
+    "modules": {},
+    "connections": {
+      "WsJf8qfp": {
+        "source": "reqHeaders",
+        "sourcePort": "@",
+        "target": "xTOOxLVq",
+        "targetPort": "headers"
+      },
+      "6tNkyyZ4": {
+        "source": "reqParams",
+        "sourcePort": "@",
+        "target": "xTOOxLVq",
+        "targetPort": "params"
+      },
+      "eOz3X0mK": {
+        "source": "reqBody",
+        "sourcePort": "@",
+        "target": "xTOOxLVq",
+        "targetPort": "body"
+      },
+      "fOSHpL38": {
+        "source": "SAf4vVMU",
+        "target": "d4CKhJLa",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "-54IvOhz": {
+        "source": "PF61jXND",
+        "target": "IltgSV_M",
+        "sourcePort": "success",
+        "targetPort": "data|body"
+      },
+      "kJtgZ9ir": {
+        "source": "IltgSV_M",
+        "sourcePort": "status",
+        "target": "resStatus",
+        "targetPort": "@"
+      },
+      "1MDmFc2u": {
+        "source": "IltgSV_M",
+        "sourcePort": "headers",
+        "target": "resHeaders",
+        "targetPort": "@"
+      },
+      "AolDOEcp": {
+        "source": "IltgSV_M",
+        "sourcePort": "body",
+        "target": "resBody",
+        "targetPort": "@"
+      },
+      "Q8zuV9m-": {
+        "source": "d4CKhJLa",
+        "sourcePort": "data",
+        "target": "PF61jXND",
+        "targetPort": "requestVariables|JhD4UEPO"
+      },
+      "K0JKzxHa": {
+        "source": "xTOOxLVq",
+        "target": "SAf4vVMU",
+        "sourcePort": "body",
+        "targetPort": "in"
+      }
+    },
+    "annotations": {},
+    "forms": {},
+    "groups": {},
+    "ports": {},
+    "io": {
+      "reqHeaders": {
+        "type": "input",
+        "name": "headers",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "reqParams": {
+        "type": "input",
+        "name": "params",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "reqBody": {
+        "type": "input",
+        "name": "body",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "resStatus": {
+        "type": "output",
+        "name": "status",
+        "typeDef": {
+          "type": "number"
+        }
+      },
+      "resHeaders": {
+        "type": "output",
+        "name": "headers",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "resBody": {
+        "type": "output",
+        "name": "body",
+        "typeDef": {
+          "properties": {}
+        }
+      }
+    },
+    "description": "",
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "meta": {},
+    "scenes": {
+      "k0EWWzd9": {
+        "name": "",
+        "slides": [
+          {
+            "id": "8WmW838W",
+            "name": "Slide 1",
+            "bounds": {
+              "left": -76.58527340889268,
+              "right": 1127.414999042471,
+              "top": -210.44930674243204,
+              "bottom": 409.6321056596394
+            }
+          }
+        ]
+      }
+    },
+    "scenarios": {
+      "09jGbf7f": {
+        "name": "toolDefinition",
+        "type": "scenario@2",
+        "data": {
+          "reqHeaders": {
+            "id": "reqHeaders",
+            "key": "headers",
+            "value": "{}"
+          },
+          "reqParams": {
+            "id": "reqParams",
+            "key": "params",
+            "value": "{}"
+          },
+          "reqBody": {
+            "id": "reqBody",
+            "key": "body",
+            "value": "{\n  \"tools\": [\n    {\n      \"name\": \"greeter\",\n      \"description\": \"Greets the user with their provided name.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"The name of the person to greet.\"\n          }\n        },\n        \"required\": [\n          \"name\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    {\n      \"name\": \"joker\",\n      \"description\": \"Provides a joke based on the given topic.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"topic\": {\n            \"type\": \"string\",\n            \"description\": \"The topic for the joke.\"\n          }\n        },\n        \"required\": [\n          \"topic\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    {\n      \"name\": \"weather\",\n      \"description\": \"Gives the weather information for the specified city.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"city\": {\n            \"type\": \"string\",\n            \"description\": \"The city to get weather information for.\"\n          }\n        },\n        \"required\": [\n          \"city\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    {\n      \"name\": \"image\",\n      \"description\": \"Returns an image without any input parameters.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {},\n        \"required\": [],\n        \"additionalProperties\": false\n      }\n    }\n  ]\n}"
+          }
+        },
+        "createdOn": 1759170212801,
+        "updatedOn": 1759170212807
+      },
+      "gMqLKgSU": {
+        "name": "greet",
+        "type": "scenario@2",
+        "data": {
+          "reqHeaders": {
+            "id": "reqHeaders",
+            "key": "headers",
+            "value": "{}"
+          },
+          "reqParams": {
+            "id": "reqParams",
+            "key": "params",
+            "value": "{}"
+          },
+          "reqBody": {
+            "id": "reqBody",
+            "key": "body",
+            "value": "{\n    \"name\": \"greeter\",\n    \"arguments\": {\n        \"name\": \"rr\"\n    }\n}"
+          }
+        },
+        "createdOn": 1772367286768,
+        "updatedOn": 1772393914209
+      },
+      "SBHE7Un5": {
+        "name": "weather",
+        "type": "scenario@2",
+        "data": {
+          "reqHeaders": {
+            "id": "reqHeaders",
+            "key": "headers",
+            "value": "{}"
+          },
+          "reqParams": {
+            "id": "reqParams",
+            "key": "params",
+            "value": "{}"
+          },
+          "reqBody": {
+            "id": "reqBody",
+            "key": "body",
+            "value": "{\n    \"name\": \"weather\",\n    \"arguments\": {\n        \"city\": \"nyc\"\n    }\n}"
+          }
+        },
+        "createdOn": 1772393933783,
+        "updatedOn": 1772393945484
+      }
+    },
+    "action": {},
+    "config": {
+      "definitions": {},
+      "constants": {}
+    },
+    "attributes": {
+      "name": "Flows MCP Tools",
+      "latestVersion": {
+        "previous": "68921b3c772c6500130f5fc5",
+        "type": "module",
+        "ports": {
+          "input": [
+            {
+              "id": "reqHeaders",
+              "name": "headers",
+              "typeDef": {
+                "properties": {}
+              }
+            },
+            {
+              "id": "reqParams",
+              "name": "params",
+              "typeDef": {
+                "properties": {}
+              }
+            },
+            {
+              "id": "reqBody",
+              "name": "body",
+              "typeDef": {
+                "properties": {}
+              }
+            }
+          ],
+          "output": [
+            {
+              "id": "resStatus",
+              "name": "status",
+              "typeDef": {
+                "type": "number"
+              }
+            },
+            {
+              "id": "resHeaders",
+              "name": "headers",
+              "typeDef": {
+                "properties": {}
+              }
+            },
+            {
+              "id": "resBody",
+              "name": "body",
+              "typeDef": {
+                "properties": {}
+              }
+            }
+          ]
+        },
+        "settings": {},
+        "revoked": null,
+        "message": "Deploying Action",
+        "name": "3",
+        "sequence": 3,
+        "hash": {
+          "algo": "sha256",
+          "encoding": "base64",
+          "value": "CguFaiH0utCnJNdEEFbZpPK+YnWZ6IZRAFxPJfpAYjU="
+        },
+        "createdOn": "2025-09-29T18:23:36.233Z",
+        "createdBy": {
+          "user": 27841139,
+          "team": 6029
+        },
+        "updatedOn": "2025-09-29T18:23:36.233Z",
+        "updatedBy": {
+          "user": 27841139,
+          "team": 6029
+        },
+        "id": "68dacea828db3d0014ee728d"
+      },
+      "parent": null,
+      "createdBy": 27841139,
+      "createdOn": "2025-06-27T16:25:00.326Z",
+      "updatedOn": "2026-03-01T12:20:22.708Z",
+      "fork": null,
+      "type": "action",
+      "workspace": "c1305f14-14ff-4b57-a232-4ccf898a28e3",
+      "permissions": {
+        "canView": true,
+        "canExecute": true,
+        "canEdit": true,
+        "canDelete": true,
+        "canDeploy": true,
+        "canUpdateRoles": true,
+        "canFork": false,
+        "canEditForkDetails": false,
+        "canAddComment": false,
+        "canResolveComment": false,
+        "canDeleteComment": false
+      },
+      "activeTargets": [
+        {
+          "id": "686606c46ff3870040cdd2bc",
+          "type": "HTTP",
+          "url": {
+            "basePath": "https://postman.flows.pstmn.io/api/",
+            "namespace": "default",
+            "path": "flow-mcp"
+          }
+        }
+      ]
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "ee9d4a35-51e5-466f-9ea6-e2a3a1ed57b5"
+  },
+  "_postman_exported_at": "2026-03-01T20:42:22.422Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

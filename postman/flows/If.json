@@ -1,0 +1,262 @@
+{
+  "name": "If",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "CzbhHqAU": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": -64
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "9KsDlfZB",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number",
+              "__noIn": true,
+              "typeDef": {
+                "type": "number"
+              }
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "FgQz9q2L": {
+        "type": "logic/if@2",
+        "pos": {
+          "x": 328,
+          "y": -240
+        },
+        "size": {
+          "width": 304,
+          "height": 104
+        },
+        "config": {
+          "language": "ts",
+          "query": "",
+          "tscript": "parseInt(n) % 2 == 0",
+          "variables": [
+            {
+              "id": "AgcIucOh",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "2auqxcTa": {
+        "type": "value/template@1",
+        "pos": {
+          "x": 728,
+          "y": 64
+        },
+        "size": {
+          "width": 316,
+          "height": 108
+        },
+        "config": {
+          "data": "{{n}} is odd",
+          "parser": "text",
+          "variables": [
+            {
+              "id": "XxL6BpXo",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Odd"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "Ut_juL7G": {
+        "type": "value/template@1",
+        "pos": {
+          "x": 728,
+          "y": -240
+        },
+        "size": {
+          "width": 316,
+          "height": 108
+        },
+        "config": {
+          "data": "{{n}} is even",
+          "parser": "text",
+          "variables": [
+            {
+              "id": "lsyUL5HX",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Even"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "EV9UdnrC": {
+        "type": "ev/output@2",
+        "pos": {
+          "x": 1176,
+          "y": 112
+        },
+        "config": {
+          "outputs": [
+            {
+              "id": "DxiSt3tk",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "result",
+              "__noIn": true
+            }
+          ],
+          "outputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "outputType": "ev/output@2"
+          },
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "7PDwgirQ": {
+        "source": "jd2hHEuh",
+        "sourcePort": "@",
+        "target": "CzbhHqAU",
+        "targetPort": "inputs|9KsDlfZB"
+      },
+      "5kO1x9Ez": {
+        "source": "CzbhHqAU",
+        "target": "FgQz9q2L",
+        "sourcePort": "output|9KsDlfZB",
+        "targetPort": "data"
+      },
+      "51aOKNwb": {
+        "source": "CzbhHqAU",
+        "target": "FgQz9q2L",
+        "sourcePort": "output|9KsDlfZB",
+        "targetPort": "variables|AgcIucOh"
+      },
+      "eEwcUD0b": {
+        "source": "FgQz9q2L",
+        "target": "2auqxcTa",
+        "sourcePort": "else",
+        "targetPort": "variables|XxL6BpXo"
+      },
+      "tFJTvGl-": {
+        "source": "FgQz9q2L",
+        "target": "Ut_juL7G",
+        "sourcePort": "then",
+        "targetPort": "variables|lsyUL5HX"
+      },
+      "8ppaqspb": {
+        "source": "Ut_juL7G",
+        "target": "EV9UdnrC",
+        "sourcePort": "data",
+        "targetPort": "outputs|DxiSt3tk"
+      },
+      "OCJhw-jD": {
+        "source": "EV9UdnrC",
+        "sourcePort": "out|DxiSt3tk",
+        "target": "zuYh-KCX",
+        "targetPort": "@"
+      },
+      "Qtxn80Dg": {
+        "source": "2auqxcTa",
+        "target": "EV9UdnrC",
+        "sourcePort": "data",
+        "targetPort": "outputs|DxiSt3tk"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "jd2hHEuh": {
+        "type": "input",
+        "name": "number",
+        "typeDef": {
+          "type": "number"
+        }
+      },
+      "zuYh-KCX": {
+        "type": "output",
+        "name": "result",
+        "typeDef": {}
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "v4lsE-iq": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1772395452025,
+        "updatedOn": 1772557006245,
+        "data": {
+          "jd2hHEuh": {
+            "id": "jd2hHEuh",
+            "key": "number",
+            "value": 2
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "e03420a6-fed9-4a53-961b-5d784596eb46"
+  },
+  "_postman_exported_at": "2026-03-03T16:57:09.253Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

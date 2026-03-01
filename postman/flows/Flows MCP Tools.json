@@ -1,0 +1,1178 @@
+{
+  "name": "Flows MCP Tools",
+  "description": "",
+  "flow": {
+    "nodes": {
+      "xTOOxLVq": {
+        "type": "action/request@1",
+        "pos": {
+          "x": 32,
+          "y": -1112
+        },
+        "config": {},
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "E2KfQkGh": {
+        "type": "action/response@1",
+        "pos": {
+          "x": 1618,
+          "y": -1118
+        },
+        "config": {
+          "data": [
+            {
+              "id": "status",
+              "key": "Status Code",
+              "value": 200,
+              "kind": "number",
+              "type": "TYPE_NUMBER"
+            },
+            {
+              "id": "headers",
+              "key": "Headers",
+              "value": null,
+              "kind": null,
+              "type": null
+            },
+            {
+              "id": "body",
+              "key": "Body",
+              "value": "",
+              "kind": "reference",
+              "type": "value/reference@2",
+              "__noIn": true
+            }
+          ]
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "headers": {
+              "extends": "data"
+            },
+            "body": {
+              "extends": "data"
+            }
+          },
+          "output": {}
+        }
+      },
+      "sR8WIKvQ": {
+        "type": "logic/condition@1",
+        "pos": {
+          "x": 344,
+          "y": -1072
+        },
+        "config": {
+          "language": "ts",
+          "queries": [
+            {
+              "id": "ELZf8",
+              "key": "Condition 1",
+              "type": "TYPE_RECORD",
+              "kind": "record",
+              "value": [
+                {
+                  "id": "K3UPZ",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "ELZf8",
+                  "key": "id"
+                },
+                {
+                  "id": "1VnOQ",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "tool == 'greeter'",
+                  "key": "condition"
+                }
+              ]
+            },
+            {
+              "id": "yChvj",
+              "key": "Condition 2",
+              "type": "TYPE_RECORD",
+              "kind": "record",
+              "value": [
+                {
+                  "id": "SzH80",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "yChvj",
+                  "key": "id"
+                },
+                {
+                  "id": "U4SO_",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "tool == 'joker'",
+                  "key": "condition"
+                }
+              ]
+            },
+            {
+              "id": "8NQai",
+              "key": "Condition 3",
+              "type": "TYPE_RECORD",
+              "kind": "record",
+              "value": [
+                {
+                  "id": "Sb_Yu",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "8NQai",
+                  "key": "id"
+                },
+                {
+                  "id": "UIlLF",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "tool == 'weather'",
+                  "key": "condition"
+                }
+              ]
+            },
+            {
+              "id": "Rckqq",
+              "key": "Condition 4",
+              "type": "TYPE_RECORD",
+              "kind": "record",
+              "value": [
+                {
+                  "id": "vCg5d",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "Rckqq",
+                  "key": "id"
+                },
+                {
+                  "id": "sC6Hl",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "tool == 'image'",
+                  "key": "condition"
+                }
+              ]
+            }
+          ],
+          "variables": [
+            {
+              "id": "b_jWuGxt",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "name",
+              "key": "tool",
+              "__noIn": true
+            },
+            {
+              "id": "JkVCLg_5",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "arguments",
+              "key": "arguments",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "b_jWuGxt": {
+              "extends": "variables"
+            },
+            "JkVCLg_5": {
+              "extends": "variables"
+            }
+          },
+          "output": {
+            "ELZf8": {
+              "extends": "queries"
+            },
+            "yChvj": {
+              "extends": "queries"
+            },
+            "Rckqq": {
+              "extends": "queries"
+            },
+            "8NQai": {
+              "extends": "queries"
+            }
+          }
+        }
+      },
+      "MEFHZnh7": {
+        "type": "value/template@1",
+        "pos": {
+          "x": 1208,
+          "y": -1160
+        },
+        "size": {
+          "width": 336,
+          "height": 120
+        },
+        "config": {
+          "data": "hello it's really nice to meet you {{name}}",
+          "parser": "text",
+          "variables": [
+            {
+              "id": "k2372rnQ",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "VjbsBCzm",
+              "key": "name",
+              "__noIn": true,
+              "latch": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "k2372rnQ": {
+              "extends": "variables",
+              "as": 4
+            }
+          },
+          "output": {}
+        }
+      },
+      "QB6cysMI": {
+        "type": "ai/generative@1",
+        "pos": {
+          "x": 1218,
+          "y": -766
+        },
+        "size": {
+          "width": 304,
+          "height": 108
+        },
+        "config": {
+          "prompt": "tell me a joke about {{topic}}",
+          "variables": [
+            {
+              "id": "qAuQtzHv",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "tM88qylC",
+              "key": "topic",
+              "__noIn": true,
+              "latch": true
+            }
+          ],
+          "mode": "text",
+          "predictability": 0.5,
+          "creativity": 0.5,
+          "model": "4o_mini",
+          "image_style": "vivid",
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "qAuQtzHv": {
+              "extends": "variables",
+              "as": 4
+            }
+          },
+          "output": {}
+        }
+      },
+      "Mm9IlK9R": {
+        "type": "action/response@1",
+        "pos": {
+          "x": 1626,
+          "y": -766
+        },
+        "config": {
+          "data": [
+            {
+              "id": "status",
+              "key": "Status Code",
+              "value": 200,
+              "kind": "number",
+              "type": "TYPE_NUMBER"
+            },
+            {
+              "id": "headers",
+              "key": "Headers",
+              "value": null,
+              "kind": null,
+              "type": null
+            },
+            {
+              "id": "body",
+              "key": "Body",
+              "value": "",
+              "kind": "reference",
+              "type": "value/reference@2",
+              "__noIn": true
+            }
+          ]
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "headers": {
+              "extends": "data"
+            },
+            "body": {
+              "extends": "data"
+            }
+          },
+          "output": {}
+        }
+      },
+      "EICuLBKo": {
+        "type": "value/reference@2",
+        "pos": {
+          "x": 762,
+          "y": -886
+        },
+        "config": {
+          "value": "arguments.name",
+          "type": "string"
+        },
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "VjbsBCzm": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1002,
+          "y": -886
+        },
+        "config": {
+          "value": "name"
+        },
+        "ui": {
+          "color": "purple",
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "ztOk3v6W": {
+        "type": "value/reference@2",
+        "pos": {
+          "x": 762,
+          "y": -790
+        },
+        "config": {
+          "value": "arguments.topic",
+          "type": "string"
+        },
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "tM88qylC": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1002,
+          "y": -790
+        },
+        "config": {
+          "value": "topic"
+        },
+        "ui": {
+          "color": "pink",
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "C5nOfVOt": {
+        "type": "action/response@1",
+        "pos": {
+          "x": 1642,
+          "y": -222
+        },
+        "config": {
+          "data": [
+            {
+              "id": "status",
+              "key": "Status Code",
+              "value": 200,
+              "kind": "number",
+              "type": "TYPE_NUMBER"
+            },
+            {
+              "id": "headers",
+              "key": "Headers",
+              "value": "",
+              "kind": "reference",
+              "type": "value/reference@2",
+              "__noIn": true
+            },
+            {
+              "id": "body",
+              "key": "Body",
+              "value": "",
+              "kind": "reference",
+              "type": "value/reference@2",
+              "__noIn": true
+            }
+          ]
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "headers": {
+              "extends": "data"
+            },
+            "body": {
+              "extends": "data"
+            }
+          },
+          "output": {}
+        }
+      },
+      "rmVlPieS": {
+        "type": "value/reference@2",
+        "pos": {
+          "x": 754,
+          "y": -582
+        },
+        "config": {
+          "value": "arguments",
+          "type": "string"
+        },
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "ymahdtJu": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1002,
+          "y": -582
+        },
+        "config": {
+          "value": "image"
+        },
+        "ui": {
+          "color": "blue",
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "S4_uiKjq": {
+        "type": "portal/out@2",
+        "pos": {
+          "x": 1072,
+          "y": -168
+        },
+        "config": {
+          "value": "ymahdtJu"
+        },
+        "ui": {
+          "data": {},
+          "color": "blue"
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "SAf4vVMU": {
+        "type": "value/reference@2",
+        "pos": {
+          "x": 754,
+          "y": -686
+        },
+        "config": {
+          "value": "arguments.city",
+          "type": "string"
+        },
+        "ui": {
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "PF61jXND": {
+        "type": "task/http-request@1",
+        "pos": {
+          "x": 1226,
+          "y": -462
+        },
+        "config": {
+          "element": {
+            "id": "B36de9aec6c6EEc67C2bCA39",
+            "collection": "CED5D38880DBaada0afAf9ed",
+            "name": "Weather",
+            "method": "GET",
+            "inExtensibleCollection": true
+          },
+          "environment": null,
+          "parseBody": "auto",
+          "requestVariables": [
+            {
+              "id": "JhD4UEPO",
+              "type": "portal/out@2",
+              "kind": "portal/out",
+              "value": "d4CKhJLa",
+              "key": "CityName",
+              "latch": true,
+              "isExtraneous": false
+            }
+          ],
+          "requestVariables__expanded": true,
+          "scriptsModifyEnvVars": false
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "L85Xw3Tr": {
+              "extends": "requestVariables",
+              "as": 4
+            }
+          },
+          "output": {}
+        }
+      },
+      "d4CKhJLa": {
+        "type": "portal/in@1",
+        "pos": {
+          "x": 1002,
+          "y": -686
+        },
+        "config": {
+          "value": "city"
+        },
+        "ui": {
+          "color": "green",
+          "data": {}
+        },
+        "extend": {
+          "input": {},
+          "output": {}
+        }
+      },
+      "IltgSV_M": {
+        "type": "action/response@1",
+        "pos": {
+          "x": 1642,
+          "y": -462
+        },
+        "config": {
+          "data": [
+            {
+              "id": "status",
+              "key": "Status Code",
+              "value": 200,
+              "kind": "number",
+              "type": "TYPE_NUMBER"
+            },
+            {
+              "id": "headers",
+              "key": "Headers",
+              "value": null,
+              "kind": null,
+              "type": null
+            },
+            {
+              "id": "body",
+              "key": "Body",
+              "value": "body",
+              "kind": "reference",
+              "type": "value/reference@2",
+              "__noIn": true
+            }
+          ],
+          "data__expanded": true
+        },
+        "ui": {
+          "color": "yellow",
+          "data": {},
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {
+            "headers": {
+              "extends": "data"
+            },
+            "body": {
+              "extends": "data"
+            }
+          },
+          "output": {}
+        }
+      },
+      "lTbjqA-8": {
+        "type": "system/module@1",
+        "pos": {
+          "x": 1232,
+          "y": -192
+        },
+        "config": {
+          "flowId": "/Users/rabbah/tmp/postman/postman/flows/Generate Image.json",
+          "versionId": "local",
+          "variables": [],
+          "ports": {
+            "input": [],
+            "output": [
+              {
+                "id": "4FBqYX85",
+                "name": "headers",
+                "type": null
+              },
+              {
+                "id": "zmXaOkeQ",
+                "name": "image",
+                "type": null
+              }
+            ],
+            "global": []
+          },
+          "globals": []
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Generate Image"
+          },
+          "namedInputsExpanded": true
+        },
+        "extend": {
+          "input": {},
+          "output": {
+            "4FBqYX85": {
+              "extends": "output",
+              "as": 1
+            },
+            "zmXaOkeQ": {
+              "extends": "output",
+              "as": 1
+            }
+          }
+        }
+      }
+    },
+    "modules": {},
+    "connections": {
+      "WsJf8qfp": {
+        "source": "reqHeaders",
+        "sourcePort": "@",
+        "target": "xTOOxLVq",
+        "targetPort": "headers"
+      },
+      "6tNkyyZ4": {
+        "source": "reqParams",
+        "sourcePort": "@",
+        "target": "xTOOxLVq",
+        "targetPort": "params"
+      },
+      "eOz3X0mK": {
+        "source": "reqBody",
+        "sourcePort": "@",
+        "target": "xTOOxLVq",
+        "targetPort": "body"
+      },
+      "5DTJE2ZL": {
+        "source": "MEFHZnh7",
+        "target": "E2KfQkGh",
+        "sourcePort": "data",
+        "targetPort": "data|body"
+      },
+      "9FVDzPvv": {
+        "source": "QB6cysMI",
+        "target": "Mm9IlK9R",
+        "sourcePort": "result",
+        "targetPort": "data|body"
+      },
+      "kVsMhPdZ": {
+        "source": "sR8WIKvQ",
+        "target": "EICuLBKo",
+        "sourcePort": "queries|ELZf8",
+        "targetPort": "in"
+      },
+      "sSKAysjb": {
+        "source": "EICuLBKo",
+        "target": "VjbsBCzm",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "sJMc2l0e": {
+        "source": "sR8WIKvQ",
+        "target": "ztOk3v6W",
+        "sourcePort": "queries|yChvj",
+        "targetPort": "in"
+      },
+      "eOU-kz9w": {
+        "source": "ztOk3v6W",
+        "target": "tM88qylC",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "SH5wZZUf": {
+        "source": "rmVlPieS",
+        "target": "ymahdtJu",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "8n9SjWTw": {
+        "source": "sR8WIKvQ",
+        "target": "rmVlPieS",
+        "sourcePort": "queries|Rckqq",
+        "targetPort": "in"
+      },
+      "C6AwAnZN": {
+        "source": "sR8WIKvQ",
+        "target": "SAf4vVMU",
+        "sourcePort": "queries|8NQai",
+        "targetPort": "in"
+      },
+      "fOSHpL38": {
+        "source": "SAf4vVMU",
+        "target": "d4CKhJLa",
+        "sourcePort": "out",
+        "targetPort": "data"
+      },
+      "-54IvOhz": {
+        "source": "PF61jXND",
+        "target": "IltgSV_M",
+        "sourcePort": "success",
+        "targetPort": "data|body"
+      },
+      "u0bFkSji": {
+        "source": "xTOOxLVq",
+        "target": "sR8WIKvQ",
+        "sourcePort": "body",
+        "targetPort": "variables|b_jWuGxt"
+      },
+      "KFrXj08k": {
+        "source": "xTOOxLVq",
+        "target": "sR8WIKvQ",
+        "sourcePort": "body",
+        "targetPort": "variables|JkVCLg_5"
+      },
+      "ONJAgJku": {
+        "source": "E2KfQkGh",
+        "sourcePort": "status",
+        "target": "resStatus",
+        "targetPort": "@"
+      },
+      "rt0qIhN3": {
+        "source": "E2KfQkGh",
+        "sourcePort": "headers",
+        "target": "resHeaders",
+        "targetPort": "@"
+      },
+      "bJrI_5aB": {
+        "source": "E2KfQkGh",
+        "sourcePort": "body",
+        "target": "resBody",
+        "targetPort": "@"
+      },
+      "QoQJeaE1": {
+        "source": "Mm9IlK9R",
+        "sourcePort": "status",
+        "target": "resStatus",
+        "targetPort": "@"
+      },
+      "IGwVnZ_m": {
+        "source": "Mm9IlK9R",
+        "sourcePort": "headers",
+        "target": "resHeaders",
+        "targetPort": "@"
+      },
+      "1ZrA_Z6P": {
+        "source": "Mm9IlK9R",
+        "sourcePort": "body",
+        "target": "resBody",
+        "targetPort": "@"
+      },
+      "MJGetGVy": {
+        "source": "C5nOfVOt",
+        "sourcePort": "status",
+        "target": "resStatus",
+        "targetPort": "@"
+      },
+      "b8SDhsEj": {
+        "source": "C5nOfVOt",
+        "sourcePort": "headers",
+        "target": "resHeaders",
+        "targetPort": "@"
+      },
+      "et1Y7CZl": {
+        "source": "C5nOfVOt",
+        "sourcePort": "body",
+        "target": "resBody",
+        "targetPort": "@"
+      },
+      "kJtgZ9ir": {
+        "source": "IltgSV_M",
+        "sourcePort": "status",
+        "target": "resStatus",
+        "targetPort": "@"
+      },
+      "1MDmFc2u": {
+        "source": "IltgSV_M",
+        "sourcePort": "headers",
+        "target": "resHeaders",
+        "targetPort": "@"
+      },
+      "AolDOEcp": {
+        "source": "IltgSV_M",
+        "sourcePort": "body",
+        "target": "resBody",
+        "targetPort": "@"
+      },
+      "GUuHeWn4": {
+        "source": "VjbsBCzm",
+        "sourcePort": "data",
+        "target": "MEFHZnh7",
+        "targetPort": "variables|k2372rnQ"
+      },
+      "Tw3vNZi9": {
+        "source": "tM88qylC",
+        "sourcePort": "data",
+        "target": "QB6cysMI",
+        "targetPort": "variables|qAuQtzHv"
+      },
+      "6Tu-Kvtt": {
+        "source": "ymahdtJu",
+        "sourcePort": "data",
+        "target": "S4_uiKjq",
+        "targetPort": "data"
+      },
+      "LAmD6MZr": {
+        "source": "S4_uiKjq",
+        "target": "lTbjqA-8",
+        "sourcePort": "data",
+        "targetPort": "AI"
+      },
+      "E9upAkdo": {
+        "source": "lTbjqA-8",
+        "target": "C5nOfVOt",
+        "sourcePort": "output|4FBqYX85",
+        "targetPort": "data|headers"
+      },
+      "gv_qQInb": {
+        "source": "lTbjqA-8",
+        "target": "C5nOfVOt",
+        "sourcePort": "output|zmXaOkeQ",
+        "targetPort": "data|body"
+      },
+      "Q8zuV9m-": {
+        "source": "d4CKhJLa",
+        "sourcePort": "data",
+        "target": "PF61jXND",
+        "targetPort": "requestVariables|JhD4UEPO"
+      }
+    },
+    "annotations": {},
+    "forms": {},
+    "groups": {},
+    "ports": {},
+    "io": {
+      "reqHeaders": {
+        "type": "input",
+        "name": "headers",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "reqParams": {
+        "type": "input",
+        "name": "params",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "reqBody": {
+        "type": "input",
+        "name": "body",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "resStatus": {
+        "type": "output",
+        "name": "status",
+        "typeDef": {
+          "type": "number"
+        }
+      },
+      "resHeaders": {
+        "type": "output",
+        "name": "headers",
+        "typeDef": {
+          "properties": {}
+        }
+      },
+      "resBody": {
+        "type": "output",
+        "name": "body",
+        "typeDef": {
+          "properties": {}
+        }
+      }
+    },
+    "description": "",
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "meta": {},
+    "scenes": {
+      "k0EWWzd9": {
+        "name": "",
+        "slides": [
+          {
+            "id": "8WmW838W",
+            "name": "Slide 1",
+            "bounds": {
+              "left": -76.58527340889268,
+              "right": 1127.414999042471,
+              "top": -210.44930674243204,
+              "bottom": 409.6321056596394
+            }
+          }
+        ]
+      }
+    },
+    "scenarios": {
+      "09jGbf7f": {
+        "name": "toolDefinition",
+        "type": "scenario@2",
+        "data": {
+          "reqHeaders": {
+            "id": "reqHeaders",
+            "key": "headers",
+            "value": "{}"
+          },
+          "reqParams": {
+            "id": "reqParams",
+            "key": "params",
+            "value": "{}"
+          },
+          "reqBody": {
+            "id": "reqBody",
+            "key": "body",
+            "value": "{\n  \"tools\": [\n    {\n      \"name\": \"greeter\",\n      \"description\": \"Greets the user with their provided name.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"The name of the person to greet.\"\n          }\n        },\n        \"required\": [\n          \"name\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    {\n      \"name\": \"joker\",\n      \"description\": \"Provides a joke based on the given topic.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"topic\": {\n            \"type\": \"string\",\n            \"description\": \"The topic for the joke.\"\n          }\n        },\n        \"required\": [\n          \"topic\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    {\n      \"name\": \"weather\",\n      \"description\": \"Gives the weather information for the specified city.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"city\": {\n            \"type\": \"string\",\n            \"description\": \"The city to get weather information for.\"\n          }\n        },\n        \"required\": [\n          \"city\"\n        ],\n        \"additionalProperties\": false\n      }\n    },\n    {\n      \"name\": \"image\",\n      \"description\": \"Returns an image without any input parameters.\",\n      \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {},\n        \"required\": [],\n        \"additionalProperties\": false\n      }\n    }\n  ]\n}"
+          }
+        },
+        "createdOn": 1759170212801,
+        "updatedOn": 1759170212807
+      },
+      "gMqLKgSU": {
+        "name": "greet",
+        "type": "scenario@2",
+        "data": {
+          "reqHeaders": {
+            "id": "reqHeaders",
+            "key": "headers",
+            "value": "{}"
+          },
+          "reqParams": {
+            "id": "reqParams",
+            "key": "params",
+            "value": "{}"
+          },
+          "reqBody": {
+            "id": "reqBody",
+            "key": "body",
+            "value": "{\n    \"name\": \"greeter\",\n    \"arguments\": {\n        \"name\": \"rr\"\n    }\n}"
+          }
+        },
+        "createdOn": 1772367286768,
+        "updatedOn": 1772393914209
+      },
+      "SBHE7Un5": {
+        "name": "weather",
+        "type": "scenario@2",
+        "data": {
+          "reqHeaders": {
+            "id": "reqHeaders",
+            "key": "headers",
+            "value": "{}"
+          },
+          "reqParams": {
+            "id": "reqParams",
+            "key": "params",
+            "value": "{}"
+          },
+          "reqBody": {
+            "id": "reqBody",
+            "key": "body",
+            "value": "{\n    \"name\": \"weather\",\n    \"arguments\": {\n        \"city\": \"nyc\"\n    }\n}"
+          }
+        },
+        "createdOn": 1772393933783,
+        "updatedOn": 1772393945484
+      }
+    },
+    "action": {},
+    "config": {
+      "definitions": {},
+      "constants": {}
+    },
+    "attributes": {
+      "name": "Flows MCP Tools",
+      "latestVersion": {
+        "previous": "68921b3c772c6500130f5fc5",
+        "type": "module",
+        "ports": {
+          "input": [
+            {
+              "id": "reqHeaders",
+              "name": "headers",
+              "typeDef": {
+                "properties": {}
+              }
+            },
+            {
+              "id": "reqParams",
+              "name": "params",
+              "typeDef": {
+                "properties": {}
+              }
+            },
+            {
+              "id": "reqBody",
+              "name": "body",
+              "typeDef": {
+                "properties": {}
+              }
+            }
+          ],
+          "output": [
+            {
+              "id": "resStatus",
+              "name": "status",
+              "typeDef": {
+                "type": "number"
+              }
+            },
+            {
+              "id": "resHeaders",
+              "name": "headers",
+              "typeDef": {
+                "properties": {}
+              }
+            },
+            {
+              "id": "resBody",
+              "name": "body",
+              "typeDef": {
+                "properties": {}
+              }
+            }
+          ]
+        },
+        "settings": {},
+        "revoked": null,
+        "message": "Deploying Action",
+        "name": "3",
+        "sequence": 3,
+        "hash": {
+          "algo": "sha256",
+          "encoding": "base64",
+          "value": "CguFaiH0utCnJNdEEFbZpPK+YnWZ6IZRAFxPJfpAYjU="
+        },
+        "createdOn": "2025-09-29T18:23:36.233Z",
+        "createdBy": {
+          "user": 27841139,
+          "team": 6029
+        },
+        "updatedOn": "2025-09-29T18:23:36.233Z",
+        "updatedBy": {
+          "user": 27841139,
+          "team": 6029
+        },
+        "id": "68dacea828db3d0014ee728d"
+      },
+      "parent": null,
+      "createdBy": 27841139,
+      "createdOn": "2025-06-27T16:25:00.326Z",
+      "updatedOn": "2026-03-01T12:20:22.708Z",
+      "fork": null,
+      "type": "action",
+      "workspace": "c1305f14-14ff-4b57-a232-4ccf898a28e3",
+      "permissions": {
+        "canView": true,
+        "canExecute": true,
+        "canEdit": true,
+        "canDelete": true,
+        "canDeploy": true,
+        "canUpdateRoles": true,
+        "canFork": false,
+        "canEditForkDetails": false,
+        "canAddComment": false,
+        "canResolveComment": false,
+        "canDeleteComment": false
+      },
+      "activeTargets": [
+        {
+          "id": "686606c46ff3870040cdd2bc",
+          "type": "HTTP",
+          "url": {
+            "basePath": "https://postman.flows.pstmn.io/api/",
+            "namespace": "default",
+            "path": "flow-mcp"
+          }
+        }
+      ]
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "3fdca661-4a03-412b-b6bd-69c0d957cdd3",
+    "_postman_cloud_id": "685ec5dc363cbc003233c9ee"
+  },
+  "_postman_exported_at": "2026-03-01T19:47:14.297Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

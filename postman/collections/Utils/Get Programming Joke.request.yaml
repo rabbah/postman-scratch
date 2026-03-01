@@ -1,0 +1,7 @@
+$kind: http-request
+description: "Generated from cURL: curl https://v2.jokeapi.dev/joke/Programming?type=single"
+url: https://v2.jokeapi.dev/joke/Programming?type=single
+method: GET
+queryParams:
+  type: single
+order: 6000

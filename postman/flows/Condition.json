@@ -1,0 +1,336 @@
+{
+  "name": "Condition",
+  "description": "",
+  "flow": {
+    "description": "",
+    "nodes": {
+      "CzbhHqAU": {
+        "type": "ev/endpoint@3",
+        "pos": {
+          "x": 0,
+          "y": -64
+        },
+        "config": {
+          "inputs": [
+            {
+              "id": "9KsDlfZB",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "number",
+              "__noIn": true
+            }
+          ],
+          "data": "",
+          "language": "json",
+          "allowAnyType": false,
+          "inputs__expanded": true
+        },
+        "ui": {
+          "data": {
+            "triggerType": "ev/endpoint@3"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "CPS-4-XS": {
+        "type": "logic/condition@1",
+        "pos": {
+          "x": 320,
+          "y": -160
+        },
+        "config": {
+          "language": "ts",
+          "queries": [
+            {
+              "id": "6o9ey",
+              "key": "Condition 1",
+              "type": "TYPE_RECORD",
+              "kind": "record",
+              "value": [
+                {
+                  "id": "Yfo2b",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "6o9ey",
+                  "key": "id"
+                },
+                {
+                  "id": "1zGPE",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "parseInt(n) % 2 == 0",
+                  "key": "condition"
+                }
+              ]
+            },
+            {
+              "id": "6LfAc",
+              "key": "Condition 2",
+              "type": "TYPE_RECORD",
+              "kind": "record",
+              "value": [
+                {
+                  "id": "vjDch",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "6LfAc",
+                  "key": "id"
+                },
+                {
+                  "id": "IPLv8",
+                  "type": "TYPE_STRING",
+                  "kind": "string",
+                  "value": "parseInt(n) % 2 == 1",
+                  "key": "condition"
+                }
+              ]
+            }
+          ],
+          "variables": [
+            {
+              "id": "qPVbJ8fC",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {},
+          "namedInputsExpanded": true
+        }
+      },
+      "40IsO_lV": {
+        "type": "value/template@1",
+        "pos": {
+          "x": 800,
+          "y": -192
+        },
+        "size": {
+          "width": 320,
+          "height": 64
+        },
+        "config": {
+          "data": "{{n}} is even",
+          "parser": "text",
+          "variables": [
+            {
+              "id": "1irEzrYV",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "n",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Even"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "OeM58nKq": {
+        "type": "value/template@1",
+        "pos": {
+          "x": 800,
+          "y": 48
+        },
+        "size": {
+          "width": 320,
+          "height": 64
+        },
+        "config": {
+          "data": "{{n}} is odd",
+          "parser": "text",
+          "variables": [
+            {
+              "id": "G3OFSCyb",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "n",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "Odd"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "wuO4gMKy": {
+        "type": "value/template@1",
+        "pos": {
+          "x": 800,
+          "y": 288
+        },
+        "size": {
+          "width": 320,
+          "height": 64
+        },
+        "config": {
+          "data": "{{n}} is not a number",
+          "parser": "text",
+          "variables": [
+            {
+              "id": "0GPU15KM",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "n",
+              "key": "n",
+              "__noIn": true
+            }
+          ],
+          "variables__expanded": true
+        },
+        "ui": {
+          "data": {
+            "blockTitle": "NaN"
+          },
+          "namedInputsExpanded": true
+        }
+      },
+      "cPRjMROL": {
+        "type": "ev/output@2",
+        "pos": {
+          "x": 1200,
+          "y": 72
+        },
+        "config": {
+          "outputs": [
+            {
+              "id": "C4rwXKad",
+              "type": "value/reference@2",
+              "kind": "reference",
+              "value": "",
+              "key": "result",
+              "__noIn": true
+            }
+          ]
+        },
+        "ui": {
+          "data": {
+            "outputType": "ev/output@2"
+          },
+          "namedInputsExpanded": true
+        }
+      }
+    },
+    "connections": {
+      "aEvEwB-J": {
+        "source": "CzbhHqAU",
+        "target": "CPS-4-XS",
+        "sourcePort": "output|9KsDlfZB",
+        "targetPort": "variables|qPVbJ8fC"
+      },
+      "7PDwgirQ": {
+        "source": "jd2hHEuh",
+        "sourcePort": "@",
+        "target": "CzbhHqAU",
+        "targetPort": "inputs|9KsDlfZB"
+      },
+      "Rfz-km-P": {
+        "source": "CPS-4-XS",
+        "target": "40IsO_lV",
+        "sourcePort": "queries|6o9ey",
+        "targetPort": "variables|1irEzrYV"
+      },
+      "Yz_2V0JW": {
+        "source": "CPS-4-XS",
+        "target": "OeM58nKq",
+        "sourcePort": "queries|6LfAc",
+        "targetPort": "variables|G3OFSCyb"
+      },
+      "WI_Xeyw_": {
+        "source": "CPS-4-XS",
+        "target": "wuO4gMKy",
+        "sourcePort": "default",
+        "targetPort": "variables|0GPU15KM"
+      },
+      "jxYkz9FF": {
+        "source": "40IsO_lV",
+        "target": "cPRjMROL",
+        "sourcePort": "data",
+        "targetPort": "outputs|C4rwXKad"
+      },
+      "MANHNNJp": {
+        "source": "cPRjMROL",
+        "sourcePort": "out|C4rwXKad",
+        "target": "0g-3qEmr",
+        "targetPort": "@"
+      },
+      "Mr4m59cL": {
+        "source": "OeM58nKq",
+        "target": "cPRjMROL",
+        "sourcePort": "data",
+        "targetPort": "outputs|C4rwXKad"
+      },
+      "_NIet4T8": {
+        "source": "wuO4gMKy",
+        "target": "cPRjMROL",
+        "sourcePort": "data",
+        "targetPort": "outputs|C4rwXKad"
+      }
+    },
+    "annotations": {},
+    "groups": {},
+    "webhook": {
+      "payloadContent": "body-only",
+      "responseType": "default"
+    },
+    "forms": {},
+    "modules": {},
+    "io": {
+      "jd2hHEuh": {
+        "type": "input",
+        "name": "number",
+        "typeDef": {
+          "type": "string"
+        }
+      },
+      "0g-3qEmr": {
+        "type": "output",
+        "name": "result",
+        "typeDef": {}
+      }
+    },
+    "ports": {},
+    "meta": {},
+    "scenes": {},
+    "scenarios": {
+      "v4lsE-iq": {
+        "name": "Start Trigger",
+        "type": "scenario@2",
+        "createdOn": 1772395452025,
+        "updatedOn": 1772557215874,
+        "data": {
+          "jd2hHEuh": {
+            "id": "jd2hHEuh",
+            "key": "number",
+            "value": "123"
+          }
+        }
+      }
+    },
+    "config": {
+      "definitions": {},
+      "constants": {}
+    }
+  },
+  "lockbox": {},
+  "info": {
+    "_postman_id": "5732215a-7a45-4831-9bda-83b25086e751"
+  },
+  "_postman_exported_at": "2026-03-03T17:00:43.974Z",
+  "_postman_exported_using": "Postman/Local Mode"
+}

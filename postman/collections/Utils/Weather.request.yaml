@@ -1,0 +1,14 @@
+$kind: http-request
+name: Weather
+url: http://api.weatherapi.com/v1/forecast.json?key={{weather-key}}&days=1&aqi=yes&alerts=yes&q={{CityName}}
+method: GET
+queryParams:
+  key: "{{weather-key}}"
+  days: "1"
+  aqi: yes
+  alerts: yes
+  q: "{{CityName}}"
+body:
+  type: json
+  content: ""
+order: 1000
